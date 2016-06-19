@@ -1,0 +1,70 @@
+// student ID : 0509_Giriraj_Khatri
+
+#include<stdio.h>
+#include<conio.h>
+
+
+	typedef struct {
+		int numerator;
+		int denominator;
+	
+	}rational;
+	rational makerational (int, int);
+	rational add_rational (rational,rational);
+	rational mul_rational (rational, rational);
+	rational eq_rational (rational, rational);
+	void main()
+	{
+		rational r1 = makerational (2,4);
+		rational r2 = makerational (1,2);
+		rational sum = add_rational (r1, r2);
+		printf("The result of sum is %d/%d\n",sum.numerator,sum.denominator);
+		rational mul = mul_rational (r1, r2);
+		printf("The result of mul is %d/%d\n",mul.numerator,mul.denominator);
+		rational eq = eq_rational (r1,r2);
+	   
+		}
+		
+	rational makerational (int a, int b)
+	{
+		rational r_number;
+		r_number.numerator = a;
+		r_number.denominator =b;
+		if(b==0)
+		{
+			printf("Invalid denominator\n");
+			exit (0);
+		}
+		return r_number;
+	}
+	rational add_rational (rational a, rational b)
+	{
+		rational result;
+		result.numerator = (a.numerator*b.denominator)+(b.numerator*a.denominator);
+		result.denominator = (a.denominator*b.denominator);
+		
+		return result;
+	}
+	rational mul_rational (rational a, rational b)
+	{
+		rational result;
+		result.numerator = (a.numerator*b.numerator);
+		result.denominator = (a.denominator*b.denominator);	
+		return result;
+	}
+	rational eq_rational (rational a, rational b)
+	{
+		rational result;
+		result.numerator = a.numerator * b.denominator;
+		result.denominator = a.numerator * b.denominator;
+		if ((a.numerator *b.denominator) ==  (b.numerator * a.denominator))
+		{
+			printf("Two rational numbers are equal\n");
+		}	
+		else
+		{
+			printf("NOT EQUAL - TRY SOMEHTING NEW\n");
+		}
+		return result;
+	}
+	
